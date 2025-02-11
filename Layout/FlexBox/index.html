@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Comprehensive Flexbox Properties</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap CSS CDN -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      pre code {
+        background-color: #f8f9fa;
+        padding: 10px;
+        border-radius: 5px;
+        display: block;
+        overflow-x: auto;
+      }
+      .property-section {
+        margin-bottom: 3rem;
+      }
+      .property-card {
+        margin-bottom: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">FlexBox Guide</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="./index.html">Home</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="./demo.html">Examples</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container my-5">
+      <header class="mb-5">
+        <h1 class="display-4">Comprehensive Flexbox Properties</h1>
+        <p class="lead">
+          This guide covers all the essential Flexbox properties for building
+          responsive layouts. The guide includes detailed explanations and code
+          examples for both flex container and flex item properties.
+        </p>
+      </header>
+
+      <!-- Flex Container Properties -->
+      <section class="property-section">
+        <h2>Flex Container Properties</h2>
+        <p>
+          These properties are applied to an element to define it as a flex
+          container and control the layout and behavior of its child items.
+        </p>
+
+        <!-- display: flex, inline-flex -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title">
+              <code>display: flex</code> / <code>inline-flex</code>
+            </h5>
+            <p class="card-text">
+              Transforms an element into a flex container. Use
+              <code>flex</code> for a block-level container and
+              <code>inline-flex</code> for an inline-level container.
+            </p>
+            <pre><code class="language-css">.container {
+  display: flex; /* or inline-flex */
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- flex-direction -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title"><code>flex-direction</code></h5>
+            <p class="card-text">
+              Determines the direction in which flex items are placed in the
+              container. Options: <code>row</code> (default),
+              <code>row-reverse</code>, <code>column</code>, and
+              <code>column-reverse</code>.
+            </p>
+            <pre><code class="language-css">.container {
+  flex-direction: row; /* row | row-reverse | column | column-reverse */
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- flex-wrap -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title"><code>flex-wrap</code></h5>
+            <p class="card-text">
+              Controls whether flex items should wrap onto multiple lines when
+              there isn’t enough space. Options: <code>nowrap</code> (default),
+              <code>wrap</code>, or <code>wrap-reverse</code>.
+            </p>
+            <pre><code class="language-css">.container {
+  flex-wrap: wrap; /* nowrap | wrap | wrap-reverse */
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- flex-flow (shorthand) -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title"><code>flex-flow</code> (shorthand)</h5>
+            <p class="card-text">
+              A shorthand property for setting both
+              <code>flex-direction</code> and <code>flex-wrap</code> in one
+              declaration.
+            </p>
+            <pre><code class="language-css">.container {
+  flex-flow: row wrap;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- justify-content -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title"><code>justify-content</code></h5>
+            <p class="card-text">
+              Aligns flex items along the main axis. Options:
+              <code>flex-start</code>, <code>flex-end</code>,
+              <code>center</code>, <code>space-between</code>,
+              <code>space-around</code>, and <code>space-evenly</code>.
+            </p>
+            <pre><code class="language-css">.container {
+  justify-content: center; /* flex-start | flex-end | center | space-between | space-around | space-evenly */
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- align-items -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title"><code>align-items</code></h5>
+            <p class="card-text">
+              Aligns flex items along the cross axis. Options:
+              <code>flex-start</code>, <code>flex-end</code>,
+              <code>center</code>, <code>baseline</code>, and
+              <code>stretch</code> (default).
+            </p>
+            <pre><code class="language-css">.container {
+  align-items: stretch; /* flex-start | flex-end | center | baseline | stretch */
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- align-content -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title"><code>align-content</code></h5>
+            <p class="card-text">
+              When there are multiple lines of flex items,
+              <code>align-content</code> controls the spacing between those
+              lines along the cross axis. Options: <code>flex-start</code>,
+              <code>flex-end</code>, <code>center</code>,
+              <code>space-between</code>, <code>space-around</code>, and
+              <code>stretch</code>.
+            </p>
+            <pre><code class="language-css">.container {
+  align-content: center; /* flex-start | flex-end | center | space-between | space-around | stretch */
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- gap -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title"><code>gap</code> (Flex Gap)</h5>
+            <p class="card-text">
+              Adds consistent spacing between flex items. (Modern browsers
+              support <code>gap</code> on flex containers.)
+            </p>
+            <pre><code class="language-css">.container {
+  gap: 10px;
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- Flex Item Properties -->
+      <section class="property-section">
+        <h2>Flex Item Properties</h2>
+        <p>
+          These properties are applied to individual flex items (children of a
+          flex container) to control their size, order, and alignment.
+        </p>
+
+        <!-- order -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title"><code>order</code></h5>
+            <p class="card-text">
+              Specifies the order in which flex items appear within the
+              container. Items with lower order values appear first (the default
+              is <code>0</code>).
+            </p>
+            <pre><code class="language-css">.item {
+  order: 1;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- flex-grow -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title"><code>flex-grow</code></h5>
+            <p class="card-text">
+              Determines how much a flex item will grow relative to other items
+              when extra space is available. The default value is
+              <code>0</code>.
+            </p>
+            <pre><code class="language-css">.item {
+  flex-grow: 1;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- flex-shrink -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title"><code>flex-shrink</code></h5>
+            <p class="card-text">
+              Specifies how much a flex item will shrink relative to other items
+              when there is not enough space. The default value is
+              <code>1</code>.
+            </p>
+            <pre><code class="language-css">.item {
+  flex-shrink: 1;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- flex-basis -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title"><code>flex-basis</code></h5>
+            <p class="card-text">
+              Sets the initial main size of a flex item before any space
+              distribution occurs. It can be a fixed length, a percentage, or
+              <code>auto</code>.
+            </p>
+            <pre><code class="language-css">.item {
+  flex-basis: 200px; /* e.g., 200px, 50%, or auto */
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- flex (shorthand) -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title"><code>flex</code> (shorthand)</h5>
+            <p class="card-text">
+              A shorthand property for setting <code>flex-grow</code>,
+              <code>flex-shrink</code>, and <code>flex-basis</code> all at once.
+            </p>
+            <pre><code class="language-css">.item {
+  flex: 1 1 200px; /* flex-grow, flex-shrink, flex-basis */
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- align-self -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title"><code>align-self</code></h5>
+            <p class="card-text">
+              Allows a single flex item to override the container’s
+              <code>align-items</code> property. Options: <code>auto</code>,
+              <code>flex-start</code>, <code>flex-end</code>,
+              <code>center</code>, <code>baseline</code>, and
+              <code>stretch</code>.
+            </p>
+            <pre><code class="language-css">.item {
+  align-self: center;
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <footer class="text-center mt-5">
+        <p class="text-muted">
+          This comprehensive guide covers every essential Flexbox property. Use
+          these properties to build responsive and flexible layouts!
+        </p>
+      </footer>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

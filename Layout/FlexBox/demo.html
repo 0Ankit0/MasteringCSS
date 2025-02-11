@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Flexbox Live Demo Showcase</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap CSS CDN -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      /* Common styles for demo containers and items */
+      .demo-container {
+        border: 1px dashed #ccc;
+        padding: 10px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+      }
+      .demo-item {
+        background: #e9ecef;
+        border: 1px solid #dee2e6;
+        padding: 20px;
+        text-align: center;
+        margin: 5px;
+        font-weight: bold;
+      }
+      /* 1. Basic Flex Container */
+      .basic-flex {
+        display: flex;
+      }
+      /* 2. Flex Direction */
+      .direction-row {
+        display: flex;
+        flex-direction: row;
+      }
+      .direction-column {
+        display: flex;
+        flex-direction: column;
+        height: 200px;
+      }
+      /* 3. Flex Wrap */
+      .wrap-flex {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      /* 4. Flex Flow (Shorthand for flex-direction & flex-wrap) */
+      .flow-flex {
+        display: flex;
+        flex-flow: row wrap;
+      }
+      /* 5. Justify Content */
+      .justify-flex {
+        display: flex;
+        justify-content: space-around;
+      }
+      /* 6. Align Items */
+      .align-flex {
+        display: flex;
+        align-items: center;
+        height: 150px;
+      }
+      /* 7. Align Content (with multiple lines) */
+      .content-flex {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: space-around;
+        height: 200px;
+      }
+      /* 8. Gap in Flex Container */
+      .gap-flex {
+        display: flex;
+        gap: 10px;
+      }
+      /* 9. Order Demo */
+      .order-flex {
+        display: flex;
+      }
+      .order-flex .item1 {
+        order: 3;
+      }
+      .order-flex .item2 {
+        order: 1;
+      }
+      .order-flex .item3 {
+        order: 2;
+      }
+      /* 10. Flex Grow Demo */
+      .grow-flex {
+        display: flex;
+      }
+      .grow-flex .item1 {
+        flex-grow: 1;
+        background-color: #ffcccb;
+      }
+      .grow-flex .item2 {
+        flex-grow: 2;
+        background-color: #add8e6;
+      }
+      .grow-flex .item3 {
+        flex-grow: 1;
+        background-color: #90ee90;
+      }
+      /* 11. Flex Shrink Demo */
+      .shrink-flex {
+        display: flex;
+        width: 300px;
+      }
+      .shrink-flex .item {
+        flex-shrink: 1;
+        min-width: 150px;
+        padding: 10px;
+        background: #e9ecef;
+        border: 1px solid #333;
+        margin: 5px;
+      }
+      /* 12. Flex Basis Demo */
+      .basis-flex {
+        display: flex;
+      }
+      .basis-flex .item {
+        flex-basis: 200px;
+        background: #dcdcdc;
+        padding: 20px;
+        margin: 5px;
+      }
+      /* 13. Flex Shorthand Demo */
+      .shorthand-flex {
+        display: flex;
+      }
+      .shorthand-flex .item1 {
+        flex: 1 1 100px;
+        background: #ffcccb;
+      }
+      .shorthand-flex .item2 {
+        flex: 2 1 100px;
+        background: #add8e6;
+      }
+      .shorthand-flex .item3 {
+        flex: 1 1 100px;
+        background: #90ee90;
+      }
+      /* 14. Align Self Demo */
+      .self-flex {
+        display: flex;
+        align-items: flex-start;
+        height: 150px;
+      }
+      .self-flex .item {
+        background: #e9ecef;
+        padding: 20px;
+        margin: 5px;
+      }
+      .self-flex .item.self-center {
+        align-self: center;
+        background: #ffebcd;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">FlexBox Guide</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="./index.html">Home</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link active" href="./demo.html">Examples</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container my-5">
+      <header class="mb-5">
+        <h1 class="display-4">Flexbox Live Demo Showcase</h1>
+        <p class="lead">
+          Explore various Flexbox properties with live demos, code snippets, and
+          detailed descriptions. Each section demonstrates how a specific
+          Flexbox property works in practice.
+        </p>
+      </header>
+
+      <!-- 1. Basic Flex Container -->
+      <section class="mb-5">
+        <h2>Basic Flex Container</h2>
+        <p>
+          This demo shows a basic flex container using
+          <code>display: flex</code> where items are laid out in a row by
+          default.
+        </p>
+        <pre><code class="language-css">.basic-flex {
+  display: flex;
+}</code></pre>
+        <div class="demo-container basic-flex">
+          <div class="demo-item">Item 1</div>
+          <div class="demo-item">Item 2</div>
+          <div class="demo-item">Item 3</div>
+        </div>
+      </section>
+
+      <!-- 2. Flex Direction -->
+      <section class="mb-5">
+        <h2>Flex Direction</h2>
+        <p>
+          Using <code>flex-direction</code>, you can change the main axis. Below
+          are examples of row (default) and column directions.
+        </p>
+        <pre><code class="language-css">.direction-row {
+  display: flex;
+  flex-direction: row;
+}
+.direction-column {
+  display: flex;
+  flex-direction: column;
+}</code></pre>
+        <div class="demo-container">
+          <h5>Row Direction</h5>
+          <div class="demo-container direction-row">
+            <div class="demo-item">Item 1</div>
+            <div class="demo-item">Item 2</div>
+            <div class="demo-item">Item 3</div>
+          </div>
+          <h5 class="mt-3">Column Direction</h5>
+          <div class="demo-container direction-column">
+            <div class="demo-item">Item 1</div>
+            <div class="demo-item">Item 2</div>
+            <div class="demo-item">Item 3</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Flex Wrap -->
+      <section class="mb-5">
+        <h2>Flex Wrap</h2>
+        <p>
+          Allows flex items to wrap onto multiple lines using
+          <code>flex-wrap</code>.
+        </p>
+        <pre><code class="language-css">.wrap-flex {
+  display: flex;
+  flex-wrap: wrap;
+}</code></pre>
+        <div class="demo-container wrap-flex">
+          <div class="demo-item">Item 1</div>
+          <div class="demo-item">Item 2</div>
+          <div class="demo-item">Item 3</div>
+          <div class="demo-item">Item 4</div>
+          <div class="demo-item">Item 5</div>
+          <div class="demo-item">Item 6</div>
+        </div>
+      </section>
+
+      <!-- 4. Flex Flow (Shorthand) -->
+      <section class="mb-5">
+        <h2>Flex Flow (Shorthand)</h2>
+        <p>
+          The <code>flex-flow</code> property combines
+          <code>flex-direction</code> and <code>flex-wrap</code> in one
+          declaration.
+        </p>
+        <pre><code class="language-css">.flow-flex {
+  display: flex;
+  flex-flow: row wrap;
+}</code></pre>
+        <div class="demo-container flow-flex">
+          <div class="demo-item">Item 1</div>
+          <div class="demo-item">Item 2</div>
+          <div class="demo-item">Item 3</div>
+          <div class="demo-item">Item 4</div>
+          <div class="demo-item">Item 5</div>
+          <div class="demo-item">Item 6</div>
+        </div>
+      </section>
+
+      <!-- 5. Justify Content -->
+      <section class="mb-5">
+        <h2>Justify Content</h2>
+        <p>
+          The <code>justify-content</code> property aligns items along the main
+          axis. This demo uses <code>space-around</code>.
+        </p>
+        <pre><code class="language-css">.justify-flex {
+  display: flex;
+  justify-content: space-around;
+}</code></pre>
+        <div class="demo-container justify-flex">
+          <div class="demo-item">A</div>
+          <div class="demo-item">B</div>
+          <div class="demo-item">C</div>
+        </div>
+      </section>
+
+      <!-- 6. Align Items -->
+      <section class="mb-5">
+        <h2>Align Items</h2>
+        <p>
+          The <code>align-items</code> property aligns flex items along the
+          cross axis. Here, items are vertically centered.
+        </p>
+        <pre><code class="language-css">.align-flex {
+  display: flex;
+  align-items: center;
+  height: 150px;
+}</code></pre>
+        <div class="demo-container align-flex">
+          <div class="demo-item">1</div>
+          <div class="demo-item">2</div>
+          <div class="demo-item">3</div>
+        </div>
+      </section>
+
+      <!-- 7. Align Content -->
+      <section class="mb-5">
+        <h2>Align Content</h2>
+        <p>
+          When flex items wrap onto multiple lines,
+          <code>align-content</code> controls the spacing between those lines
+          along the cross axis.
+        </p>
+        <pre><code class="language-css">.content-flex {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-around;
+  height: 200px;
+}</code></pre>
+        <div class="demo-container content-flex">
+          <div class="demo-item">1</div>
+          <div class="demo-item">2</div>
+          <div class="demo-item">3</div>
+          <div class="demo-item">4</div>
+          <div class="demo-item">5</div>
+          <div class="demo-item">6</div>
+        </div>
+      </section>
+
+      <!-- 8. Gap in Flex Container -->
+      <section class="mb-5">
+        <h2>Gap in Flex Container</h2>
+        <p>The <code>gap</code> property adds space between flex items.</p>
+        <pre><code class="language-css">.gap-flex {
+  display: flex;
+  gap: 10px;
+}</code></pre>
+        <div class="demo-container gap-flex">
+          <div class="demo-item">Item 1</div>
+          <div class="demo-item">Item 2</div>
+          <div class="demo-item">Item 3</div>
+        </div>
+      </section>
+
+      <!-- 9. Order -->
+      <section class="mb-5">
+        <h2>Order</h2>
+        <p>
+          The <code>order</code> property specifies the order in which flex
+          items appear.
+        </p>
+        <pre><code class="language-css">.order-flex {
+  display: flex;
+}
+.order-flex .item1 { order: 3; }
+.order-flex .item2 { order: 1; }
+.order-flex .item3 { order: 2; }</code></pre>
+        <div class="demo-container order-flex">
+          <div class="demo-item item1">Item 1</div>
+          <div class="demo-item item2">Item 2</div>
+          <div class="demo-item item3">Item 3</div>
+        </div>
+      </section>
+
+      <!-- 10. Flex Grow -->
+      <section class="mb-5">
+        <h2>Flex Grow</h2>
+        <p>
+          The <code>flex-grow</code> property determines how much a flex item
+          will grow relative to others when extra space is available.
+        </p>
+        <pre><code class="language-css">.grow-flex {
+  display: flex;
+}
+.grow-flex .item1 { flex-grow: 1; }
+.grow-flex .item2 { flex-grow: 2; }
+.grow-flex .item3 { flex-grow: 1; }</code></pre>
+        <div class="demo-container grow-flex">
+          <div class="demo-item item1">Item 1</div>
+          <div class="demo-item item2">Item 2</div>
+          <div class="demo-item item3">Item 3</div>
+        </div>
+      </section>
+
+      <!-- 11. Flex Shrink -->
+      <section class="mb-5">
+        <h2>Flex Shrink</h2>
+        <p>
+          The <code>flex-shrink</code> property specifies how much a flex item
+          will shrink when there is not enough space.
+        </p>
+        <pre><code class="language-css">.shrink-flex {
+  display: flex;
+  width: 300px;
+}
+.shrink-flex .item {
+  flex-shrink: 1;
+  min-width: 150px;
+}</code></pre>
+        <div class="demo-container shrink-flex">
+          <div class="demo-item item">Item 1</div>
+          <div class="demo-item item">Item 2</div>
+        </div>
+      </section>
+
+      <!-- 12. Flex Basis -->
+      <section class="mb-5">
+        <h2>Flex Basis</h2>
+        <p>
+          The <code>flex-basis</code> property sets the initial main size of a
+          flex item before space distribution.
+        </p>
+        <pre><code class="language-css">.basis-flex {
+  display: flex;
+}
+.basis-flex .item {
+  flex-basis: 200px;
+}</code></pre>
+        <div class="demo-container basis-flex">
+          <div class="demo-item item">Item 1</div>
+          <div class="demo-item item">Item 2</div>
+          <div class="demo-item item">Item 3</div>
+        </div>
+      </section>
+
+      <!-- 13. Flex Shorthand -->
+      <section class="mb-5">
+        <h2>Flex Shorthand</h2>
+        <p>
+          The <code>flex</code> shorthand property sets <code>flex-grow</code>,
+          <code>flex-shrink</code>, and <code>flex-basis</code> in one
+          declaration.
+        </p>
+        <pre><code class="language-css">.shorthand-flex {
+  display: flex;
+}
+.shorthand-flex .item1 { flex: 1 1 100px; }
+.shorthand-flex .item2 { flex: 2 1 100px; }
+.shorthand-flex .item3 { flex: 1 1 100px; }</code></pre>
+        <div class="demo-container shorthand-flex">
+          <div class="demo-item item1">Item 1</div>
+          <div class="demo-item item2">Item 2</div>
+          <div class="demo-item item3">Item 3</div>
+        </div>
+      </section>
+
+      <!-- 14. Align Self -->
+      <section class="mb-5">
+        <h2>Align Self</h2>
+        <p>
+          The <code>align-self</code> property allows an individual flex item to
+          override the container's <code>align-items</code> value.
+        </p>
+        <pre><code class="language-css">.self-flex {
+  display: flex;
+  align-items: flex-start;
+  height: 150px;
+}
+.self-flex .item { }
+.self-flex .item.self-center {
+  align-self: center;
+}</code></pre>
+        <div class="demo-container self-flex">
+          <div class="demo-item item">Item 1</div>
+          <div class="demo-item item self-center">Item 2 (centered)</div>
+          <div class="demo-item item">Item 3</div>
+        </div>
+      </section>
+
+      <footer class="text-center mt-5">
+        <p class="text-muted">
+          Flexbox Live Demo Showcase &mdash; Use these properties to build
+          responsive and flexible layouts!
+        </p>
+      </footer>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
