@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Comprehensive CSS Selectors</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap CSS CDN -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      pre code {
+        background-color: #f8f9fa;
+        padding: 15px;
+        border-radius: 5px;
+        display: block;
+        overflow-x: auto;
+        font-size: 0.95rem;
+      }
+      .property-section {
+        margin-bottom: 3rem;
+      }
+      .property-card {
+        margin-bottom: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container my-5">
+      <header class="mb-5">
+        <h1 class="display-4">Comprehensive CSS Selectors</h1>
+        <p class="lead">
+          This guide covers every major CSS selector with detailed explanations
+          and code examples. Learn about basic selectors, combinators, attribute
+          selectors, pseudo-classes, pseudo-elements, and more.
+        </p>
+      </header>
+
+      <!-- Basic Selectors -->
+      <section class="property-section">
+        <h2>Basic Selectors</h2>
+        <p>
+          Basic selectors target HTML elements by their name, id, or class. They
+          are the foundation of CSS.
+        </p>
+
+        <!-- Element Selector -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title">Element Selector</h5>
+            <p class="card-text">
+              Selects all elements of a given type. For example, to style every
+              paragraph:
+            </p>
+            <pre><code class="language-css">p {
+  color: #d63384;
+  font-size: 1.1rem;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- Class Selector -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title">Class Selector</h5>
+            <p class="card-text">
+              Selects all elements that have a specific class attribute. Precede
+              the class name with a period.
+            </p>
+            <pre><code class="language-css">.highlight {
+  background-color: #ffeeba;
+  padding: 5px;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- ID Selector -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title">ID Selector</h5>
+            <p class="card-text">
+              Selects a single element with a specific id attribute. Precede the
+              id with a hash symbol.
+            </p>
+            <pre><code class="language-css">#unique {
+  border: 2px solid #198754;
+  padding: 10px;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- Universal Selector -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title">Universal Selector</h5>
+            <p class="card-text">
+              Selects every element in the document. Useful for setting global
+              styles.
+            </p>
+            <pre><code class="language-css">* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- Grouping Selectors -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title">Grouping Selectors</h5>
+            <p class="card-text">
+              Allows you to group multiple selectors so they share the same
+              styles.
+            </p>
+            <pre><code class="language-css">h1, h2, h3 {
+  color: #0d6efd;
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- Combinator Selectors -->
+      <section class="property-section">
+        <h2>Combinator Selectors</h2>
+        <p>
+          Combinators target elements based on their relationships in the HTML
+          document.
+        </p>
+
+        <!-- Descendant Combinator -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title">Descendant Combinator</h5>
+            <p class="card-text">
+              Selects elements that are inside (descendants of) another element.
+            </p>
+            <pre><code class="language-css">div p {
+  color: #6c757d;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- Child Combinator -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title">Child Combinator</h5>
+            <p class="card-text">
+              Selects elements that are a direct child of a specified element.
+            </p>
+            <pre><code class="language-css">ul > li {
+  list-style: none;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- Adjacent Sibling Combinator -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title">Adjacent Sibling Combinator</h5>
+            <p class="card-text">
+              Selects an element that immediately follows another element.
+            </p>
+            <pre><code class="language-css">h1 + p {
+  margin-top: 0;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- General Sibling Combinator -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title">General Sibling Combinator</h5>
+            <p class="card-text">
+              Selects all siblings of an element that follow it.
+            </p>
+            <pre><code class="language-css">h1 ~ p {
+  color: #198754;
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- Attribute Selectors -->
+      <section class="property-section">
+        <h2>Attribute Selectors</h2>
+        <p>
+          Attribute selectors target elements based on the presence or value of
+          an attribute.
+        </p>
+
+        <!-- [attribute] -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title">[attribute]</h5>
+            <p class="card-text">
+              Selects elements with the specified attribute, regardless of its
+              value.
+            </p>
+            <pre><code class="language-css">a[target] {
+  color: #0dcaf0;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- [attribute="value"] -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title">[attribute="value"]</h5>
+            <p class="card-text">
+              Selects elements with an attribute that exactly matches a given
+              value.
+            </p>
+            <pre><code class="language-css">img[alt="Logo"] {
+  border: 2px solid #ffc107;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- [attribute~="value"] -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title">[attribute~="value"]</h5>
+            <p class="card-text">
+              Selects elements whose attribute value is a whitespace-separated
+              list of words, one of which matches the specified value.
+            </p>
+            <pre><code class="language-css">[class~="btn"] {
+  padding: 0.5rem 1rem;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- [attribute|="value"] -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title">[attribute|="value"]</h5>
+            <p class="card-text">
+              Selects elements with an attribute value that starts with a
+              specified value, followed by a hyphen.
+            </p>
+            <pre><code class="language-css">[lang|="en"] {
+  font-family: Arial, sans-serif;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- [attribute^="value"] -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title">[attribute^="value"]</h5>
+            <p class="card-text">
+              Selects elements with an attribute value that begins with the
+              specified value.
+            </p>
+            <pre><code class="language-css">a[href^="https"] {
+  color: #198754;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- [attribute$="value"] -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title">[attribute$="value"]</h5>
+            <p class="card-text">
+              Selects elements with an attribute value that ends with the
+              specified value.
+            </p>
+            <pre><code class="language-css">a[href$=".pdf"] {
+  text-decoration: underline;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- [attribute*="value"] -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title">[attribute*="value"]</h5>
+            <p class="card-text">
+              Selects elements with an attribute value that contains the
+              specified substring.
+            </p>
+            <pre><code class="language-css">a[href*="example"] {
+  font-weight: bold;
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pseudo-classes -->
+      <section class="property-section">
+        <h2>Pseudo-classes</h2>
+        <p>
+          Pseudo-classes select elements based on their state or position in the
+          document.
+        </p>
+
+        <!-- :hover -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title">:hover</h5>
+            <p class="card-text">
+              Applies styles when the user hovers over an element.
+            </p>
+            <pre><code class="language-css">a:hover {
+  color: #dc3545;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- :active -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title">:active</h5>
+            <p class="card-text">
+              Applies styles to an element at the moment it is being activated
+              (e.g., clicked).
+            </p>
+            <pre><code class="language-css">button:active {
+  background-color: #0d6efd;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- :focus -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title">:focus</h5>
+            <p class="card-text">
+              Applies styles when an element (like a form input) has focus.
+            </p>
+            <pre><code class="language-css">input:focus {
+  outline: 2px solid #198754;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- :first-child / :last-child -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title">:first-child / :last-child</h5>
+            <p class="card-text">
+              Selects an element that is the first or last child of its parent.
+            </p>
+            <pre><code class="language-css">ul li:first-child {
+  font-weight: bold;
+}
+ul li:last-child {
+  font-style: italic;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- :nth-child() -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title">:nth-child()</h5>
+            <p class="card-text">
+              Selects elements based on their position among siblings. For
+              example, selecting every even child:
+            </p>
+            <pre><code class="language-css">ul li:nth-child(even) {
+  background-color: #f8f9fa;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- :not() -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title">:not()</h5>
+            <p class="card-text">
+              Selects every element that does not match a given selector.
+            </p>
+            <pre><code class="language-css">p:not(.intro) {
+  color: #6c757d;
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pseudo-elements -->
+      <section class="property-section">
+        <h2>Pseudo-elements</h2>
+        <p>Pseudo-elements allow you to style specific parts of an element.</p>
+
+        <!-- ::before -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title">::before</h5>
+            <p class="card-text">
+              Inserts content before an element’s actual content.
+            </p>
+            <pre><code class="language-css">.note::before {
+  content: "Note: ";
+  font-weight: bold;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- ::after -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title">::after</h5>
+            <p class="card-text">
+              Inserts content after an element’s actual content.
+            </p>
+            <pre><code class="language-css">.quote::after {
+  content: " — Author";
+  font-style: italic;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- ::first-line -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title">::first-line</h5>
+            <p class="card-text">
+              Styles the first line of text in a block-level element.
+            </p>
+            <pre><code class="language-css">p::first-line {
+  font-weight: bold;
+  text-transform: uppercase;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- ::first-letter -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title">::first-letter</h5>
+            <p class="card-text">
+              Styles the first letter of a block-level element.
+            </p>
+            <pre><code class="language-css">p::first-letter {
+  font-size: 2rem;
+  color: #dc3545;
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <footer class="text-center mt-5">
+        <p class="text-muted">
+          This guide covers the essential CSS selectors—from basic element,
+          class, and id selectors to combinators, attribute selectors,
+          pseudo-classes, and pseudo-elements. Use these selectors to target and
+          style elements precisely in your projects.
+        </p>
+      </footer>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
