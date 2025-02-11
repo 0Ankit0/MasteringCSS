@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Comprehensive CSS At‑Rules</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    pre code {
+      background-color: #f8f9fa;
+      padding: 15px;
+      border-radius: 5px;
+      display: block;
+      overflow-x: auto;
+      font-size: 0.95rem;
+    }
+    .property-section {
+      margin-bottom: 3rem;
+    }
+    .property-card {
+      margin-bottom: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="#">FlexBox Guide</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="./index.html">Home</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link " href="./demo.html">Examples</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+  <div class="container my-5">
+    <header class="mb-5">
+      <h1 class="display-4">Comprehensive CSS At‑Rules</h1>
+      <p class="lead">
+        CSS at‑rules are special instructions that control how a stylesheet is interpreted and applied. This guide covers every major at‑rule—from global rules and conditional queries to animation, fonts, paged media, container queries, cascade layers, and experimental features.
+      </p>
+    </header>
+
+    <!-- Global At‑Rules -->
+    <section class="property-section">
+      <h2>Global At‑Rules</h2>
+      <p>These rules are typically placed at the very top of a stylesheet and apply globally.</p>
+
+      <!-- @charset -->
+      <div class="card property-card">
+        <div class="card-body">
+          <h5 class="card-title">@charset</h5>
+          <p class="card-text">
+            Specifies the character encoding for the stylesheet. It must be the very first rule in the CSS file so that the browser can correctly interpret the text.
+          </p>
+          <pre><code class="language-css">@charset "UTF-8";</code></pre>
+        </div>
+      </div>
+
+      <!-- @import -->
+      <div class="card property-card">
+        <div class="card-body">
+          <h5 class="card-title">@import</h5>
+          <p class="card-text">
+            Imports an external stylesheet into the current stylesheet. It must appear before all other rules (except @charset). This is useful for modularizing CSS.
+          </p>
+          <pre><code class="language-css">@import url("styles.css");
+@import "theme.css";</code></pre>
+        </div>
+      </div>
+
+      <!-- @namespace -->
+      <div class="card property-card">
+        <div class="card-body">
+          <h5 class="card-title">@namespace</h5>
+          <p class="card-text">
+            Declares an XML namespace for the document. This is mainly useful when working with XML‑based markup (like SVG or XHTML) to qualify element names.
+          </p>
+          <pre><code class="language-css">@namespace url(http://www.w3.org/1999/xhtml);</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conditional At‑Rules -->
+    <section class="property-section">
+      <h2>Conditional At‑Rules</h2>
+      <p>
+        These rules conditionally apply CSS based on media features or feature support.
+      </p>
+
+      <!-- @media -->
+      <div class="card property-card">
+        <div class="card-body">
+          <h5 class="card-title">@media</h5>
+          <p class="card-text">
+            Applies styles only if specified conditions about the device or viewport are met. It is essential for responsive design. You can target screen sizes, orientation, resolution, and more.
+          </p>
+          <pre><code class="language-css">@media screen and (max-width: 600px) {
+  body {
+    background-color: #f8f9fa;
+  }
+}</code></pre>
+        </div>
+      </div>
+
+      <!-- @supports -->
+      <div class="card property-card">
+        <div class="card-body">
+          <h5 class="card-title">@supports</h5>
+          <p class="card-text">
+            Also known as feature queries, this rule allows you to test whether a browser supports a certain CSS feature. If the condition is met, the enclosed CSS is applied.
+          </p>
+          <pre><code class="language-css">@supports (display: grid) {
+  .container {
+    display: grid;
+  }
+}</code></pre>
+        </div>
+      </div>
+
+      <!-- @document (Non‑standard) -->
+      <div class="card property-card">
+        <div class="card-body">
+          <h5 class="card-title">@document (Non‑standard)</h5>
+          <p class="card-text">
+            A Mozilla‑specific rule that applies styles based on the document URL. It is not part of any standard and has limited support, so use it with caution.
+          </p>
+          <pre><code class="language-css">@-moz-document url("https://example.com") {
+  body {
+    background-color: #f8f9fa;
+  }
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Animation and Font At‑Rules -->
+    <section class="property-section">
+      <h2>Animation and Font At‑Rules</h2>
+      <p>
+        These at‑rules allow you to define animations and embed custom fonts.
+      </p>
+
+      <!-- @keyframes -->
+      <div class="card property-card">
+        <div class="card-body">
+          <h5 class="card-title">@keyframes</h5>
+          <p class="card-text">
+            Defines keyframes for a CSS animation. Within a @keyframes block, you specify how an element should change at various stages (using percentages or keywords like from/to).
+          </p>
+          <pre><code class="language-css">@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100px);
+  }
+}</code></pre>
+        </div>
+      </div>
+
+      <!-- @font-face -->
+      <div class="card property-card">
+        <div class="card-body">
+          <h5 class="card-title">@font-face</h5>
+          <p class="card-text">
+            Allows you to define custom fonts by specifying a font name, source files (with different formats), and additional descriptors like weight and style. Once declared, you can use the font throughout your CSS.
+          </p>
+          <pre><code class="language-css">@font-face {
+  font-family: "MyCustomFont";
+  src: url("mycustomfont.woff2") format("woff2"),
+       url("mycustomfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Paged Media and Counter At‑Rules -->
+    <section class="property-section">
+      <h2>Paged Media and Counter At‑Rules</h2>
+      <p>
+        These at‑rules are designed for print styles and list/counter customization.
+      </p>
+
+      <!-- @page -->
+      <div class="card property-card">
+        <div class="card-body">
+          <h5 class="card-title">@page</h5>
+          <p class="card-text">
+            Specifies the dimensions, orientation, and margins of a printed page. It allows you to create custom print styles that differ from screen styles.
+          </p>
+          <pre><code class="language-css">@page {
+  margin: 1cm;
+}</code></pre>
+        </div>
+      </div>
+
+      <!-- @counter-style -->
+      <div class="card property-card">
+        <div class="card-body">
+          <h5 class="card-title">@counter-style</h5>
+          <p class="card-text">
+            Defines custom counter styles for ordered lists and other elements that utilize counters. You can specify the counter system, symbols, and suffix to create unique numbering schemes.
+          </p>
+          <pre><code class="language-css">@counter-style custom-counter {
+  system: cyclic;
+  symbols: "➀" "➁" "➂" "➃" "➄";
+  suffix: " ";
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Viewport, Container, Layer, and Experimental At‑Rules -->
+    <section class="property-section">
+      <h2>Viewport, Container, Layer, and Experimental At‑Rules</h2>
+      <p>
+        This section covers advanced and experimental at‑rules that allow you to control the viewport, create container queries, organize the cascade, and define custom CSS properties.
+      </p>
+
+      <!-- @viewport -->
+      <div class="card property-card">
+        <div class="card-body">
+          <h5 class="card-title">@viewport</h5>
+          <p class="card-text">
+            Specifies properties for the viewport (such as width and initial scale) to control layout on mobile devices. Note that browser support for @viewport is limited.
+          </p>
+          <pre><code class="language-css">@viewport {
+  width: device-width;
+  initial-scale: 1;
+}</code></pre>
+        </div>
+      </div>
+
+      <!-- @container -->
+      <div class="card property-card">
+        <div class="card-body">
+          <h5 class="card-title">@container</h5>
+          <p class="card-text">
+            Introduced for container queries, the <code>@container</code> rule allows you to apply styles based on the size of a container element rather than the viewport. This enables more granular responsive design by letting child elements adapt to their parent container's dimensions.
+          </p>
+          <pre><code class="language-css">@container (min-width: 500px) {
+  .child {
+    background-color: lightblue;
+  }
+}</code></pre>
+        </div>
+      </div>
+
+      <!-- @layer -->
+      <div class="card property-card">
+        <div class="card-body">
+          <h5 class="card-title">@layer</h5>
+          <p class="card-text">
+            Organizes CSS into named layers, which helps you control the cascade order. By assigning rules to layers, you can prevent conflicts and create a more predictable style hierarchy.
+          </p>
+          <pre><code class="language-css">@layer reset, base, components, utilities;</code></pre>
+        </div>
+      </div>
+
+      <!-- @property -->
+      <div class="card property-card">
+        <div class="card-body">
+          <h5 class="card-title">@property</h5>
+          <p class="card-text">
+            Part of the CSS Houdini API, this experimental rule allows you to define custom CSS properties with explicit syntax, inheritance behavior, and initial values. This helps ensure type safety and consistent behavior for custom properties.
+          </p>
+          <pre><code class="language-css">@property --my-color {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #000;
+}</code></pre>
+        </div>
+      </div>
+
+      <!-- @scroll-timeline (Experimental) -->
+      <div class="card property-card">
+        <div class="card-body">
+          <h5 class="card-title">@scroll-timeline (Experimental)</h5>
+          <p class="card-text">
+            An experimental at‑rule used to create scroll‑linked animations. It defines a timeline that is driven by the scroll position, allowing you to synchronize animations with scrolling. Note that this feature is still in development and not widely supported.
+          </p>
+          <pre><code class="language-css">@scroll-timeline myTimeline {
+  scroll-offsets: 0%, 100%;
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <footer class="text-center mt-5">
+      <p class="text-muted">
+        This guide covers every major CSS at‑rule—from global directives to conditional rules, animations, fonts, paged media, container queries, cascade layers, and experimental features. Use these at‑rules to control how your CSS is parsed and applied in various contexts.
+      </p>
+    </footer>
+  </div>
+
+  <!-- Bootstrap JS, Popper.js, and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
