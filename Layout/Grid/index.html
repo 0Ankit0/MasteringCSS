@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Comprehensive CSS Grid Properties - Detailed Descriptions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap CSS CDN -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      /* Custom styles for code blocks */
+      pre code {
+        background-color: #f8f9fa;
+        padding: 10px;
+        border-radius: 5px;
+        display: block;
+        overflow-x: auto;
+      }
+      .property-section {
+        margin-bottom: 3rem;
+      }
+      .property-card {
+        margin-bottom: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">CSS Grid Guide</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="./index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./GridTempAreaEx.html"
+                >Grid Template Areas Example</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./demo.html">Examples</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container my-5">
+      <header class="mb-5">
+        <h1 class="display-4">Comprehensive CSS Grid Properties</h1>
+        <p class="lead">
+          This guide lists all the main CSS Grid properties with detailed
+          descriptions and code snippets. It covers both grid container
+          properties and grid item properties to help you master grid layout
+          techniques.
+        </p>
+      </header>
+
+      <!-- Grid Container Properties -->
+      <section class="property-section">
+        <h2>CSS Grid Container Properties</h2>
+        <p>
+          These properties are applied to the grid container to control the
+          overall grid layout, including the structure, spacing, and alignment
+          of grid items.
+        </p>
+
+        <!-- display -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title">
+              <code>display: grid</code> / <code>inline-grid</code>
+            </h5>
+            <p class="card-text">
+              The <code>display</code> property with a value of
+              <code>grid</code> or <code>inline-grid</code> transforms an
+              element into a grid container. While <code>grid</code> creates a
+              block-level container, <code>inline-grid</code> creates an
+              inline-level container. This step is essential to initiate CSS
+              Grid layout, making all direct children grid items.
+            </p>
+            <pre><code>.grid-container {
+  display: grid; /* or inline-grid for inline-level grid */
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- grid-template-columns -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title"><code>grid-template-columns</code></h5>
+            <p class="card-text">
+              This property defines the column structure of your grid. It lets
+              you specify fixed widths (like <code>200px</code>), flexible units
+              using fractions (<code>1fr</code>), percentages, or even functions
+              like <code>repeat()</code>. The declared values determine both the
+              number of columns and their widths, which in turn influences the
+              overall layout.
+            </p>
+            <pre><code>.grid-container {
+  grid-template-columns: 1fr 2fr 1fr; /* Three columns with relative widths */
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- grid-template-rows -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title"><code>grid-template-rows</code></h5>
+            <p class="card-text">
+              Similar to <code>grid-template-columns</code>, this property
+              defines the row structure. You can specify explicit heights for
+              rows using pixels, percentages, or flexible units. This property
+              is particularly useful when you need to control the vertical
+              spacing and layout of your content.
+            </p>
+            <pre><code>.grid-container {
+  grid-template-rows: 100px auto 50px; /* Three rows with specified heights */
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- grid-template-areas -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title"><code>grid-template-areas</code></h5>
+            <p class="card-text">
+              This property allows you to define named areas in your grid
+              layout. By specifying a visual map of the grid, you can later
+              place grid items into these named regions using the
+              <code>grid-area</code> property. This approach makes your HTML and
+              CSS more semantic and easier to understand.
+            </p>
+            <pre><code>.grid-container {
+  grid-template-areas:
+    "header header header"
+    "sidebar main main"
+    "footer footer footer";
+}
+
+.header  { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.main    { grid-area: main; }
+.footer  { grid-area: footer; }
+</code></pre>
+          </div>
+        </div>
+
+        <!-- grid-template (shorthand) -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title"><code>grid-template</code> (shorthand)</h5>
+            <p class="card-text">
+              A shorthand property that combines
+              <code>grid-template-rows</code>,
+              <code>grid-template-columns</code>, and
+              <code>grid-template-areas</code> into one declaration. This allows
+              for more concise code when the grid layout is defined in a single
+              statement.
+            </p>
+            <pre><code>.grid-container {
+  grid-template:
+    "header header" 50px
+    "content sidebar" auto
+    / 1fr 2fr;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- gap / row-gap / column-gap -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title">
+              <code>gap</code>, <code>row-gap</code>, <code>column-gap</code>
+            </h5>
+            <p class="card-text">
+              These properties control the spacing between grid items.
+              <code>gap</code> sets both row and column gaps simultaneously.
+              Alternatively, <code>row-gap</code> and
+              <code>column-gap</code> allow you to define vertical and
+              horizontal spacing separately. They are essential for adding white
+              space and improving readability in your layout.
+            </p>
+            <pre><code>.grid-container {
+  gap: 20px; /* Sets equal spacing for rows and columns */
+  /* Or separately:
+  row-gap: 10px;
+  column-gap: 15px;
+  */
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- align-items -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title"><code>align-items</code></h5>
+            <p class="card-text">
+              This property aligns grid items along the block (vertical) axis
+              within their grid cells. It accepts values like
+              <code>start</code>, <code>end</code>, <code>center</code>, and
+              <code>stretch</code> (which is the default). It is useful for
+              ensuring that all items have a consistent vertical alignment,
+              regardless of their content.
+            </p>
+            <pre><code>.grid-container {
+  align-items: center;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- justify-items -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title"><code>justify-items</code></h5>
+            <p class="card-text">
+              Similar to <code>align-items</code>, this property aligns grid
+              items along the inline (horizontal) axis within each grid cell. It
+              helps in controlling the horizontal positioning of individual
+              items, offering values like <code>start</code>, <code>end</code>,
+              <code>center</code>, and <code>stretch</code>.
+            </p>
+            <pre><code>.grid-container {
+  justify-items: start;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- place-items -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title"><code>place-items</code></h5>
+            <p class="card-text">
+              A shorthand property that simultaneously sets
+              <code>align-items</code> and <code>justify-items</code>. This is
+              useful when you want a uniform alignment for all grid items
+              without specifying each property separately.
+            </p>
+            <pre><code>.grid-container {
+  place-items: center;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- align-content -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title"><code>align-content</code></h5>
+            <p class="card-text">
+              This property aligns the entire grid along the block (vertical)
+              axis when there is extra space in the grid container. Unlike
+              <code>align-items</code> which affects each individual item,
+              <code>align-content</code> distributes the extra space between
+              rows.
+            </p>
+            <pre><code>.grid-container {
+  align-content: space-between;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- justify-content -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title"><code>justify-content</code></h5>
+            <p class="card-text">
+              Similar to <code>align-content</code>, this property aligns the
+              entire grid along the inline (horizontal) axis when extra space is
+              available. It is used to center or evenly space the grid within
+              its container.
+            </p>
+            <pre><code>.grid-container {
+  justify-content: center;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- place-content -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title"><code>place-content</code></h5>
+            <p class="card-text">
+              A shorthand property that sets both <code>align-content</code> and
+              <code>justify-content</code> at once, allowing you to control the
+              overall alignment of the grid on both axes in a single
+              declaration.
+            </p>
+            <pre><code>.grid-container {
+  place-content: stretch;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- grid-auto-columns -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title"><code>grid-auto-columns</code></h5>
+            <p class="card-text">
+              This property defines the size of any grid columns that are
+              created implicitly (i.e., not defined in
+              <code>grid-template-columns</code>). When grid items extend beyond
+              the defined columns, the new columns will adopt this size.
+            </p>
+            <pre><code>.grid-container {
+  grid-auto-columns: 100px;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- grid-auto-rows -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title"><code>grid-auto-rows</code></h5>
+            <p class="card-text">
+              Similar to <code>grid-auto-columns</code>, this property specifies
+              the size for implicitly generated grid rows. It is useful when
+              your grid has more items than the rows defined in your template,
+              ensuring consistent row height.
+            </p>
+            <pre><code>.grid-container {
+  grid-auto-rows: 150px;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- grid-auto-flow -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title"><code>grid-auto-flow</code></h5>
+            <p class="card-text">
+              Controls the automatic placement of grid items that are not
+              explicitly positioned. You can specify the placement direction
+              with values like <code>row</code> (default) or
+              <code>column</code>, and the <code>dense</code> keyword fills in
+              any gaps. This property is especially handy for dynamic layouts
+              where items are added without specific positions.
+            </p>
+            <pre><code>.grid-container {
+  grid-auto-flow: row; /* Options: row, column, row dense, column dense */
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- Grid Item Properties -->
+      <section class="property-section">
+        <h2>CSS Grid Item Properties</h2>
+        <p>
+          These properties are applied to individual grid items to control their
+          specific placement and alignment within the grid cells.
+        </p>
+
+        <!-- grid-column-start -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title"><code>grid-column-start</code></h5>
+            <p class="card-text">
+              Specifies the starting line for a grid item’s column placement. It
+              accepts a numeric value, a named grid line, or <code>auto</code>,
+              and is essential for positioning items horizontally within the
+              grid.
+            </p>
+            <pre><code>.grid-item {
+  grid-column-start: 2;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- grid-column-end -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title"><code>grid-column-end</code></h5>
+            <p class="card-text">
+              Determines the ending grid line for a grid item’s column
+              placement. Working together with <code>grid-column-start</code>,
+              it defines the horizontal span of the grid item.
+            </p>
+            <pre><code>.grid-item {
+  grid-column-end: 4;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- grid-column (shorthand) -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title"><code>grid-column</code> (shorthand)</h5>
+            <p class="card-text">
+              A convenient shorthand for specifying both
+              <code>grid-column-start</code> and <code>grid-column-end</code> in
+              one declaration. It simplifies the code when defining how many
+              columns a grid item should span.
+            </p>
+            <pre><code>.grid-item {
+  grid-column: 2 / 4;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- grid-row-start -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title"><code>grid-row-start</code></h5>
+            <p class="card-text">
+              Specifies the starting grid line for a grid item’s row placement.
+              This property accepts a line number, a named line, or
+              <code>auto</code> and is used to determine the vertical position
+              of the item.
+            </p>
+            <pre><code>.grid-item {
+  grid-row-start: 1;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- grid-row-end -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title"><code>grid-row-end</code></h5>
+            <p class="card-text">
+              Specifies the ending grid line for a grid item’s row placement,
+              defining the lower boundary of the item’s vertical span. It works
+              in tandem with <code>grid-row-start</code>.
+            </p>
+            <pre><code>.grid-item {
+  grid-row-end: 3;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- grid-row (shorthand) -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title"><code>grid-row</code> (shorthand)</h5>
+            <p class="card-text">
+              A shorthand for setting both <code>grid-row-start</code> and
+              <code>grid-row-end</code>. This concise declaration defines the
+              vertical span of the grid item.
+            </p>
+            <pre><code>.grid-item {
+  grid-row: 1 / 3;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- grid-area -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title"><code>grid-area</code></h5>
+            <p class="card-text">
+              The <code>grid-area</code> property can be used in two ways: as a
+              shorthand for specifying <code>grid-row-start</code>,
+              <code>grid-column-start</code>, <code>grid-row-end</code>, and
+              <code>grid-column-end</code>, or to assign a grid item to a named
+              area defined in <code>grid-template-areas</code>. This dual
+              functionality makes layout management simpler and more semantic.
+            </p>
+            <pre><code>.grid-item {
+  /* Using numeric lines */
+  grid-area: 1 / 2 / 3 / 4;
+  
+  /* Using a named grid area (when grid-template-areas is defined) */
+  /* grid-area: header; */
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- justify-self -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title"><code>justify-self</code></h5>
+            <p class="card-text">
+              Aligns the grid item along the inline (horizontal) axis within its
+              cell. It overrides the container’s
+              <code>justify-items</code> value for that specific item. Common
+              options include <code>start</code>, <code>end</code>,
+              <code>center</code>, and <code>stretch</code>.
+            </p>
+            <pre><code>.grid-item {
+  justify-self: end;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- align-self -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title"><code>align-self</code></h5>
+            <p class="card-text">
+              This property aligns the grid item along the block (vertical) axis
+              within its cell. It is used to override the container’s
+              <code>align-items</code> property on a per-item basis. Values such
+              as <code>start</code>, <code>end</code>, <code>center</code>, and
+              <code>stretch</code> are typically used.
+            </p>
+            <pre><code>.grid-item {
+  align-self: start;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- place-self -->
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title"><code>place-self</code></h5>
+            <p class="card-text">
+              A shorthand property that simultaneously sets both
+              <code>justify-self</code> and <code>align-self</code> for a grid
+              item. This ensures that the item is consistently aligned both
+              horizontally and vertically within its grid cell.
+            </p>
+            <pre><code>.grid-item {
+  place-self: center;
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <footer class="text-center mt-5">
+        <p class="text-muted">
+          This detailed guide covers all the essential CSS Grid properties with
+          in-depth descriptions. Experiment with these properties to create
+          flexible, responsive, and well-aligned grid layouts!
+        </p>
+      </footer>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

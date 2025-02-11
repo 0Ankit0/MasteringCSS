@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSS Grid Live Demo Showcase</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap CSS CDN -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      /* Common styles for live demo containers and items */
+      .demo-container {
+        border: 1px dashed #ccc;
+        padding: 10px;
+        margin-top: 10px;
+      }
+      .demo-item {
+        background: #e9ecef;
+        border: 1px solid #dee2e6;
+        padding: 20px;
+        text-align: center;
+        font-weight: bold;
+      }
+      /* Basic Grid Setup */
+      .basic-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      /* Grid Template Rows */
+      .rows-grid {
+        display: grid;
+        grid-template-rows: 50px 100px 50px;
+      }
+      /* Grid Template Areas */
+      .area-grid {
+        display: grid;
+        grid-template-areas:
+          "header header"
+          "sidebar content"
+          "footer footer";
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 50px 150px 50px;
+      }
+      .area-grid .header {
+        grid-area: header;
+        background: #ffcccb;
+      }
+      .area-grid .sidebar {
+        grid-area: sidebar;
+        background: #add8e6;
+      }
+      .area-grid .content {
+        grid-area: content;
+        background: #90ee90;
+      }
+      .area-grid .footer {
+        grid-area: footer;
+        background: #fdfd96;
+      }
+      /* Grid Gap */
+      .gap-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+      }
+      /* Align Items & Justify Items */
+      .align-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        height: 200px;
+        align-items: center;
+        justify-items: center;
+      }
+      /* Grid Auto Flow */
+      .auto-flow-grid {
+        display: grid;
+        grid-auto-flow: dense;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+      }
+      .auto-flow-grid .item1 {
+        grid-column: span 2;
+      }
+      /* Grid Item Spanning */
+      .span-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 100px 100px;
+        gap: 10px;
+      }
+      .span-grid .item1 {
+        grid-column: 1 / span 2;
+        grid-row: 1 / span 2;
+      }
+      /* Responsive Grid Example */
+      .responsive-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">CSS Grid Guide</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="./index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./GridTempAreaEx.html"
+                >Grid Template Areas Example</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="./demo.html">Examples</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container my-5">
+      <header class="mb-5">
+        <h1 class="display-4">CSS Grid Live Demo Showcase</h1>
+        <p class="lead">
+          Explore various CSS Grid properties with live examples, code snippets,
+          and detailed descriptions.
+        </p>
+      </header>
+
+      <!-- 1. Basic Grid Setup -->
+      <section class="mb-5">
+        <h2>Basic Grid Setup</h2>
+        <p>
+          This example demonstrates a basic grid layout using
+          <code>display: grid</code> and <code>grid-template-columns</code> to
+          create three equal columns.
+        </p>
+        <pre><code class="language-css">.basic-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}</code></pre>
+        <div class="demo-container basic-grid">
+          <div class="demo-item">1</div>
+          <div class="demo-item">2</div>
+          <div class="demo-item">3</div>
+        </div>
+      </section>
+
+      <!-- 2. Grid Template Rows -->
+      <section class="mb-5">
+        <h2>Grid Template Rows</h2>
+        <p>
+          This example uses <code>grid-template-rows</code> to create a grid
+          with three rows of different heights.
+        </p>
+        <pre><code class="language-css">.rows-grid {
+  display: grid;
+  grid-template-rows: 50px 100px 50px;
+}</code></pre>
+        <div class="demo-container rows-grid">
+          <div class="demo-item">Row 1 (50px)</div>
+          <div class="demo-item">Row 2 (100px)</div>
+          <div class="demo-item">Row 3 (50px)</div>
+        </div>
+      </section>
+
+      <!-- 3. Grid Template Areas -->
+      <section class="mb-5">
+        <h2>Grid Template Areas</h2>
+        <p>
+          This example uses <code>grid-template-areas</code> to define a layout
+          with named areas: header, sidebar, content, and footer.
+        </p>
+        <pre><code class="language-css">.area-grid {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar content"
+    "footer footer";
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 50px 150px 50px;
+}
+.area-grid .header { grid-area: header; }
+.area-grid .sidebar { grid-area: sidebar; }
+.area-grid .content { grid-area: content; }
+.area-grid .footer { grid-area: footer; }</code></pre>
+        <div class="demo-container area-grid">
+          <div class="demo-item header">Header</div>
+          <div class="demo-item sidebar">Sidebar</div>
+          <div class="demo-item content">Content</div>
+          <div class="demo-item footer">Footer</div>
+        </div>
+      </section>
+
+      <!-- 4. Grid Gap -->
+      <section class="mb-5">
+        <h2>Grid Gap</h2>
+        <p>
+          This example demonstrates the <code>gap</code> property to add space
+          between grid items.
+        </p>
+        <pre><code class="language-css">.gap-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}</code></pre>
+        <div class="demo-container gap-grid">
+          <div class="demo-item">Item 1</div>
+          <div class="demo-item">Item 2</div>
+          <div class="demo-item">Item 3</div>
+        </div>
+      </section>
+
+      <!-- 5. Align Items &amp; Justify Items -->
+      <section class="mb-5">
+        <h2>Align Items &amp; Justify Items</h2>
+        <p>
+          This example shows how <code>align-items</code> and
+          <code>justify-items</code> center grid items within their cells. The
+          grid has a fixed height, and the items are centered both vertically
+          and horizontally.
+        </p>
+        <pre><code class="language-css">.align-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 200px;
+  align-items: center;
+  justify-items: center;
+}</code></pre>
+        <div class="demo-container align-grid">
+          <div class="demo-item">A</div>
+          <div class="demo-item">B</div>
+          <div class="demo-item">C</div>
+        </div>
+      </section>
+
+      <!-- 6. Grid Auto Flow -->
+      <section class="mb-5">
+        <h2>Grid Auto Flow</h2>
+        <p>
+          This example demonstrates <code>grid-auto-flow</code> with the
+          <code>dense</code> keyword. The first item spans two columns, and the
+          grid automatically places the remaining items to fill gaps.
+        </p>
+        <pre><code class="language-css">.auto-flow-grid {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.auto-flow-grid .item1 {
+  grid-column: span 2;
+}</code></pre>
+        <div class="demo-container auto-flow-grid">
+          <div class="demo-item item1">Span 2</div>
+          <div class="demo-item">2</div>
+          <div class="demo-item">3</div>
+          <div class="demo-item">4</div>
+          <div class="demo-item">5</div>
+          <div class="demo-item">6</div>
+        </div>
+      </section>
+
+      <!-- 7. Grid Item Spanning -->
+      <section class="mb-5">
+        <h2>Grid Item Spanning</h2>
+        <p>
+          This example shows how a grid item can span multiple columns and rows
+          using <code>grid-column</code> and <code>grid-row</code> properties.
+        </p>
+        <pre><code class="language-css">.span-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 100px 100px;
+  gap: 10px;
+}
+.span-grid .item1 {
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 2;
+}</code></pre>
+        <div class="demo-container span-grid">
+          <div class="demo-item item1">Span 2 cols &amp; 2 rows</div>
+          <div class="demo-item">2</div>
+          <div class="demo-item">3</div>
+          <div class="demo-item">4</div>
+        </div>
+      </section>
+
+      <!-- 8. Responsive Grid Example -->
+      <section class="mb-5">
+        <h2>Responsive Grid Example</h2>
+        <p>
+          This example uses the <code>repeat(auto-fit, minmax())</code> syntax
+          to create a responsive grid that adjusts the number of columns based
+          on the viewport width.
+        </p>
+        <pre><code class="language-css">.responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}</code></pre>
+        <div class="demo-container responsive-grid">
+          <div class="demo-item">1</div>
+          <div class="demo-item">2</div>
+          <div class="demo-item">3</div>
+          <div class="demo-item">4</div>
+          <div class="demo-item">5</div>
+          <div class="demo-item">6</div>
+        </div>
+      </section>
+
+      <footer class="text-center mt-5">
+        <p class="text-muted">
+          CSS Grid Live Demo Showcase &mdash; explore the examples above to see
+          how different grid properties work in practice.
+        </p>
+      </footer>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
