@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Detailed CSS Transitions & Animations Guide</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap CSS CDN (Bootstrap 4.5.2) -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        background-color: #f8f9fa;
+        line-height: 1.6;
+      }
+      pre code {
+        background-color: #e9ecef;
+        padding: 10px;
+        border-radius: 5px;
+        display: block;
+        overflow-x: auto;
+      }
+      .section {
+        margin-bottom: 3rem;
+      }
+      .card {
+        margin-bottom: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">CSS Transitions & Animations</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarContent"
+          aria-controls="navbarContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#introduction">Introduction</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#transitions">Transitions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#animation">Animations</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#comparison">Comparison</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#practical">Practical Examples</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#conclusion">Conclusion</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+      <!-- Introduction -->
+      <section id="introduction" class="section">
+        <header class="mb-4">
+          <h1 class="display-4">Detailed CSS Transitions & Animations Guide</h1>
+          <p class="lead">
+            CSS transitions and animations bring life to web interfaces by
+            enabling smooth changes and dynamic effects. In this guide, we
+            explain every detail—from individual properties to complete
+            examples—so you can predict and control the visual feedback of your
+            elements.
+          </p>
+        </header>
+      </section>
+
+      <!-- Transitions Section -->
+      <section id="transitions" class="section">
+        <h2>CSS Transitions</h2>
+        <p>
+          Transitions let you smoothly change property values when an element
+          changes state. They are ideal for simple, one-time state changes (such
+          as hover effects). A transition is defined by four main properties:
+        </p>
+        <ul>
+          <li>
+            <strong>transition-property:</strong> Specifies which CSS property
+            or properties to animate (e.g. <code>background-color</code>,
+            <code>transform</code>, or <code>all</code>).
+          </li>
+          <li>
+            <strong>transition-duration:</strong> The length of time the
+            transition takes (in seconds or milliseconds).
+          </li>
+          <li>
+            <strong>transition-timing-function:</strong> Defines the speed curve
+            of the transition (e.g. <code>linear</code>, <code>ease</code>,
+            <code>ease-in</code>, <code>ease-out</code>,
+            <code>ease-in-out</code> or a custom
+            <code>cubic-bezier</code> function).
+          </li>
+          <li>
+            <strong>transition-delay:</strong> Delays the start of the
+            transition.
+          </li>
+        </ul>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Code Example: Button Hover Transition</h5>
+            <pre><code class="language-css">
+.button {
+  background-color: #3498db;
+  color: #fff;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 4px;
+  /* Apply transitions on background-color and transform */
+  transition-property: background-color, transform;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+}
+
+.button:hover {
+  background-color: #2980b9;
+  transform: scale(1.05);
+}
+            </code></pre>
+            <p class="card-text">
+              When hovering over the button, its background color and scale
+              change smoothly over 0.3 seconds. This is achieved by specifying
+              which properties to animate and how long each transition should
+              take.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Animations Section -->
+      <section id="animation" class="section">
+        <h2>CSS Animations</h2>
+        <p>
+          CSS animations allow for more complex sequences of movements and state
+          changes through the use of keyframes. Unlike transitions, animations
+          can run automatically, repeat, and create multi-step effects.
+        </p>
+        <ul>
+          <li>
+            <strong>animation-name:</strong> Specifies the
+            <code>@keyframes</code> rule that defines the animation sequence.
+          </li>
+          <li>
+            <strong>animation-duration:</strong> The total time for one cycle of
+            the animation.
+          </li>
+          <li>
+            <strong>animation-timing-function:</strong> Defines the speed curve
+            (similar to transitions).
+          </li>
+          <li>
+            <strong>animation-delay:</strong> The delay before the animation
+            starts.
+          </li>
+          <li>
+            <strong>animation-iteration-count:</strong> How many times the
+            animation repeats (<code>infinite</code> for continuous play).
+          </li>
+          <li>
+            <strong>animation-direction:</strong> Specifies whether the
+            animation plays normally, in reverse, or alternates
+            (<code>normal</code>, <code>reverse</code>, <code>alternate</code>,
+            <code>alternate-reverse</code>).
+          </li>
+          <li>
+            <strong>animation-fill-mode:</strong> Controls the style applied
+            before or after the animation (e.g. <code>forwards</code> to retain
+            the final state).
+          </li>
+          <li>
+            <strong>animation-play-state:</strong> Allows pausing or running the
+            animation (<code>running</code> or <code>paused</code>).
+          </li>
+        </ul>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Code Example: Bounce Animation</h5>
+            <pre><code class="language-css">
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+
+.bounce-box {
+  width: 100px;
+  height: 100px;
+  background-color: #e74c3c;
+  border-radius: 8px;
+  /* Apply the bounce animation */
+  animation-name: bounce;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-fill-mode: none;
+}
+            </code></pre>
+            <p class="card-text">
+              This example creates a bouncing effect using the
+              <code>@keyframes</code> rule. The element moves upward and then
+              returns to its original position in a continuous loop.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Comparison Section -->
+      <section id="comparison" class="section">
+        <h2>Transitions vs. Animations</h2>
+        <p>
+          Although both transitions and animations are used to create movement,
+          they are used in different scenarios:
+        </p>
+        <ul>
+          <li>
+            <strong>Transitions:</strong> Best for simple state changes
+            triggered by user interactions (like hover), where one property
+            smoothly changes from one value to another.
+          </li>
+          <li>
+            <strong>Animations:</strong> More versatile and complex; they can
+            run automatically, loop, and define multiple keyframe steps.
+          </li>
+        </ul>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">When to Use</h5>
+            <p class="card-text">
+              Use transitions for effects that need to occur on a state change.
+              Choose animations when you require continuous or multi-stage
+              effects, such as slideshows, spinners, or interactive effects.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Practical Examples Section -->
+      <section id="practical" class="section">
+        <h2>Practical Examples & Customization Techniques</h2>
+        <p>
+          You can combine transitions and animations with CSS variables and
+          functions to create dynamic, reusable effects. This approach
+          simplifies theme changes and consistent design.
+        </p>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">
+              Example: Themeable Button with Transition and Animation
+            </h5>
+            <pre><code class="language-css">
+:root {
+  --btn-bg: #3498db;
+  --btn-bg-hover: #2980b9;
+}
+
+.button-theme {
+  background-color: var(--btn-bg);
+  color: #fff;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button-theme:hover {
+  background-color: var(--btn-bg-hover);
+  transform: scale(1.05);
+}
+
+/* Loading spinner using keyframe animation */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--btn-bg);
+  border-top: 4px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+            </code></pre>
+            <p class="card-text">
+              This example shows a button that smoothly changes color and scales
+              on hover using transitions, while a spinner element uses a
+              continuous rotation animation defined by keyframes.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Conclusion Section -->
+      <section id="conclusion" class="section">
+        <h2>Conclusion</h2>
+        <p>
+          CSS transitions and animations provide the tools to create
+          interactive, engaging, and dynamic web interfaces. By mastering the
+          detailed properties—such as duration, timing functions, delays, and
+          keyframe definitions—you gain precise control over how elements move
+          and change.
+        </p>
+        <p>
+          Continue exploring resources like MDN, CSS-Tricks, and modern CSS
+          courses to deepen your understanding, and practice by building
+          real-world projects.
+        </p>
+      </section>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
