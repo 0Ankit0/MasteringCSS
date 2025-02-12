@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Comprehensive CSS Nesting Guide</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap CSS CDN -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      pre code {
+        background-color: #f8f9fa;
+        padding: 15px;
+        border-radius: 5px;
+        display: block;
+        overflow-x: auto;
+        font-size: 0.95rem;
+      }
+      .section-title {
+        margin-top: 2rem;
+      }
+      .property-section {
+        margin-bottom: 3rem;
+      }
+      .property-card {
+        margin-bottom: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container my-5">
+      <header class="mb-5">
+        <h1 class="display-4">Comprehensive CSS Nesting Guide</h1>
+        <p class="lead">
+          CSS Nesting is an emerging feature that allows you to write cleaner
+          and more structured CSS by nesting selectors inside one another. This
+          guide explains how nesting works, how to use the parent reference
+          (&amp;) to target nested elements, and offers best practices along
+          with detailed code examples.
+        </p>
+        <p class="text-muted">
+          Note: CSS Nesting is an experimental feature that is part of the CSS
+          Nesting Module Level 1. While many preprocessors (such as Sass and
+          Less) have long supported nesting, native CSS nesting is still gaining
+          support in browsers. Check current compatibility or use a tool like
+          PostCSS if needed.
+        </p>
+      </header>
+
+      <!-- Introduction to CSS Nesting -->
+      <section class="property-section">
+        <h2 class="section-title">Introduction to CSS Nesting</h2>
+        <p>
+          Traditionally, CSS requires you to write selectors in a flat,
+          non‐hierarchical manner. With nesting, you can write selectors that
+          mirror the HTML structure. This helps organize your styles and reduce
+          repetition.
+        </p>
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title">Basic Example</h5>
+            <p class="card-text">
+              Instead of writing separate selectors for each element, you can
+              nest child selectors within their parent. For example:
+            </p>
+            <pre><code class="language-css">article {
+  color: blue;
+  /* Nested selectors for elements inside article */
+  h1 {
+    font-size: 2em;
+    color: darkblue;
+  }
+  p {
+    margin: 1rem 0;
+  }
+}</code></pre>
+            <p class="card-text">
+              This nested code will be compiled (or interpreted) into standard
+              CSS targeting <code>article h1</code> and <code>article p</code>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Parent Selector Reference (&) -->
+      <section class="property-section">
+        <h2 class="section-title">Parent Selector Reference (&amp;)</h2>
+        <p>
+          The ampersand (<code>&amp;</code>) is used as a reference to the
+          parent selector. This is especially useful when you need to define
+          pseudo-classes, pseudo-elements, or modify the selector itself.
+        </p>
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title">Using the Parent Reference</h5>
+            <p class="card-text">
+              In the example below, the <code>&amp;:hover</code> rule applies
+              when the parent element is hovered:
+            </p>
+            <pre><code class="language-css">.button {
+  background-color: blue;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  /* Nested hover state using & */
+  &:hover {
+    background-color: darkblue;
+  }
+}</code></pre>
+            <p class="card-text">
+              The nested <code>&amp;:hover</code> will compile to
+              <code>.button:hover</code>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Nesting with Combinators -->
+      <section class="property-section">
+        <h2 class="section-title">Nesting with Combinators</h2>
+        <p>
+          You can also nest selectors with combinators to clearly express
+          relationships. This keeps the CSS organized and mirrors the HTML
+          structure.
+        </p>
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title">
+              Example with Descendant and Child Combinators
+            </h5>
+            <p class="card-text">
+              The following example nests selectors to target specific elements
+              within a container:
+            </p>
+            <pre><code class="language-css">.nav {
+  background: #333;
+  padding: 1rem;
+  /* Target all links inside .nav */
+  a {
+    color: #fff;
+    text-decoration: none;
+    /* Add hover state */
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  /* Direct child list items */
+  > ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      display: inline-block;
+      margin-right: 1rem;
+    }
+  }
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- Nesting Pseudo-classes and Pseudo-elements -->
+      <section class="property-section">
+        <h2 class="section-title">
+          Nesting Pseudo-classes and Pseudo-elements
+        </h2>
+        <p>
+          Nesting allows you to include pseudo-classes and pseudo-elements
+          within the nested structure. This makes it simple to manage states or
+          target specific parts of an element.
+        </p>
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title">Example with Pseudo-classes and ::after</h5>
+            <p class="card-text">
+              Here, the <code>&amp;:focus</code> and
+              <code>&amp;::after</code> selectors are nested within a form field
+              style.
+            </p>
+            <pre><code class="language-css">.input-field {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  /* Focus state */
+  &:focus {
+    border-color: #0d6efd;
+  }
+  /* Insert an icon after the input */
+  &::after {
+    content: "✓";
+    color: green;
+    display: none;
+  }
+  /* Show icon when valid */
+  &:valid::after {
+    display: inline;
+  }
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- Browser Support and Caveats -->
+      <section class="property-section">
+        <h2 class="section-title">Browser Support and Caveats</h2>
+        <p>
+          CSS Nesting is an exciting new feature; however, its native support is
+          still evolving. While many developers use preprocessors like Sass for
+          nesting, native CSS nesting (as defined in the CSS Nesting Module
+          Level 1 specification) is being implemented in modern browsers. If you
+          choose to use native nesting today, consider using a PostCSS plugin or
+          verifying compatibility.
+        </p>
+        <div class="card property-card">
+          <div class="card-body">
+            <h5 class="card-title">Fallback and Tools</h5>
+            <p class="card-text">
+              Until native support becomes widespread, you can use build tools
+              (like PostCSS with the <code>postcss-nesting</code> plugin) to
+              transpile nested CSS into standard flat CSS. This ensures
+              compatibility across all browsers.
+            </p>
+            <pre><code class="language-css">/* Example configuration for PostCSS */
+module.exports = {
+  plugins: [
+    require('postcss-nesting'),
+    // other plugins
+  ]
+};</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <footer class="text-center mt-5">
+        <p class="text-muted">
+          This guide covers the basics and advanced usage of CSS
+          Nesting—including parent reference, combinators, and pseudo selectors.
+          Use nesting to keep your CSS organized and maintainable as browser
+          support continues to grow.
+        </p>
+      </footer>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
