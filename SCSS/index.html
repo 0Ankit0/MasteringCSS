@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Comprehensive SCSS Properties Guide</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap CSS CDN (Bootstrap 4.5.2 used here) -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.6;
+      }
+      pre code {
+        background-color: #f8f9fa;
+        padding: 10px;
+        border-radius: 5px;
+        display: block;
+        overflow-x: auto;
+      }
+      .section {
+        margin-bottom: 3rem;
+      }
+      .card {
+        margin-bottom: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">SCSS Guide</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#introduction">Introduction</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#variables">Variables</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#nesting">Nesting</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#mixins">Mixins</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#functions">Functions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#inheritance">Inheritance</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#control">Control Directives</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#loops">Loops</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#interpolation">Interpolation</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#partials">Partials & Modules</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <div class="container my-5">
+      <!-- Introduction -->
+      <section id="introduction" class="section">
+        <header class="mb-4">
+          <h1 class="display-4">Comprehensive SCSS Properties Guide</h1>
+          <p class="lead">
+            SCSS (Sassy CSS) extends traditional CSS with programming-like
+            features that simplify stylesheet management and improve code reuse.
+            This guide details the various properties and features of SCSS –
+            from variables to mixins, functions, inheritance, control
+            directives, loops, interpolation, and partials.
+          </p>
+        </header>
+      </section>
+
+      <!-- Variables -->
+      <section id="variables" class="section">
+        <h2>Variables</h2>
+        <p>
+          Variables allow you to store values (such as colors, fonts, and
+          dimensions) that can be reused throughout your stylesheets. This
+          centralization of values makes global changes much easier.
+        </p>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Example: Defining and Using Variables</h5>
+            <pre><code class="language-scss">
+// Define variables
+$primary-color: #3498db;
+$font-stack: Helvetica, sans-serif;
+$spacing: 1rem;
+
+// Use variables in styles
+body {
+  font-family: $font-stack;
+  color: $primary-color;
+  margin: $spacing;
+}
+            </code></pre>
+            <p class="card-text">
+              In this snippet, <code>$primary-color</code>,
+              <code>$font-stack</code>, and <code>$spacing</code> are defined at
+              the top and then used to style the <code>body</code> element.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Nesting -->
+      <section id="nesting" class="section">
+        <h2>Nesting</h2>
+        <p>
+          Nesting in SCSS allows you to mirror your HTML structure within your
+          stylesheet, reducing redundancy and improving readability.
+        </p>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Example: Nested Selectors</h5>
+            <pre><code class="language-scss">
+nav {
+  background-color: #333;
+  ul {
+    list-style: none;
+    padding: 0;
+    li {
+      display: inline-block;
+      a {
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+  }
+}
+            </code></pre>
+            <p class="card-text">
+              This nested structure clearly reflects the DOM hierarchy and
+              avoids repetition of selectors.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Mixins -->
+      <section id="mixins" class="section">
+        <h2>Mixins</h2>
+        <p>
+          Mixins are reusable blocks of code that can accept parameters. They
+          help you include groups of CSS declarations and even vendor prefixes
+          in a DRY manner.
+        </p>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Example: Creating a Box Shadow Mixin</h5>
+            <pre><code class="language-scss">
+@mixin box-shadow($shadow) {
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+.button {
+  @include box-shadow(2px 2px 5px rgba(0, 0, 0, 0.3));
+}
+            </code></pre>
+            <p class="card-text">
+              The mixin <code>box-shadow</code> encapsulates the box-shadow
+              property along with vendor prefixes. Including it in the
+              <code>.button</code> class applies the shadow.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Functions -->
+      <section id="functions" class="section">
+        <h2>Functions</h2>
+        <p>
+          SCSS functions perform calculations and return values. They allow you
+          to encapsulate arithmetic or logic that can be reused throughout your
+          stylesheet.
+        </p>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Example: Pixel to REM Converter</h5>
+            <pre><code class="language-scss">
+@function px-to-rem($px, $base: 16) {
+  @return ($px / $base) * 1rem;
+}
+
+.container {
+  width: px-to-rem(320); // Converts 320px to rem units
+}
+            </code></pre>
+            <p class="card-text">
+              This function, <code>px-to-rem</code>, simplifies converting pixel
+              values to rem units.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Inheritance and Extend -->
+      <section id="inheritance" class="section">
+        <h2>Inheritance &amp; @extend</h2>
+        <p>
+          The <code>@extend</code> directive enables one selector to inherit the
+          styles of another. Placeholder selectors (starting with
+          <code>%</code>) are used to define styles that only appear when
+          extended.
+        </p>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">
+              Example: Using a Placeholder for Common Styles
+            </h5>
+            <pre><code class="language-scss">
+// Define a placeholder
+%message-base {
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.message {
+  @extend %message-base;
+}
+
+.success {
+  @extend %message-base;
+  border-color: green;
+}
+            </code></pre>
+            <p class="card-text">
+              Both <code>.message</code> and <code>.success</code> inherit the
+              base styles from <code>%message-base</code>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Control Directives -->
+      <section id="control" class="section">
+        <h2>Control Directives</h2>
+        <p>
+          Control directives (<code>@if</code>, <code>@else</code>,
+          <code>@for</code>, <code>@each</code>, and <code>@while</code>) allow
+          you to add logic and loops to your SCSS, making your styles dynamic.
+        </p>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Example: Conditional Border</h5>
+            <pre><code class="language-scss">
+$enable-border: true;
+
+.custom-box {
+  @if $enable-border {
+    border: 2px dashed $primary-color;
+  } @else {
+    border: 1px solid $secondary-color;
+  }
+}
+            </code></pre>
+            <p class="card-text">
+              This snippet uses an <code>@if</code> directive to apply a dashed
+              border if <code>$enable-border</code> is true.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Loops -->
+      <section id="loops" class="section">
+        <h2>Loops</h2>
+        <p>
+          Loops such as <code>@for</code> and <code>@each</code> let you
+          generate repetitive CSS dynamically, reducing redundancy.
+        </p>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">
+              Example: Generating Margin Utility Classes
+            </h5>
+            <pre><code class="language-scss">
+@for $i from 1 through 5 {
+  .mt-#{$i} {
+    margin-top: $spacing * $i;
+  }
+}
+            </code></pre>
+            <p class="card-text">
+              The loop creates classes <code>.mt-1</code> to
+              <code>.mt-5</code> with increasing top margins based on the
+              <code>$spacing</code> variable.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interpolation -->
+      <section id="interpolation" class="section">
+        <h2>Interpolation</h2>
+        <p>
+          Interpolation allows you to embed SCSS expressions within strings to
+          dynamically generate selectors or property names.
+        </p>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Example: Dynamic Property Names</h5>
+            <pre><code class="language-scss">
+$property: "margin";
+$direction: "left";
+
+.dynamic-item {
+  #{$property}-#{$direction}: 20px; /* Compiles to margin-left: 20px; */
+}
+            </code></pre>
+            <p class="card-text">
+              Here, interpolation is used to combine the variable values into a
+              valid property name.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Partials & Modules -->
+      <section id="partials" class="section">
+        <h2>Partials &amp; Modules</h2>
+        <p>
+          Partials are smaller SCSS files (prefixed with an underscore) that can
+          be imported into a main stylesheet using <code>@import</code> (or
+          <code>@use</code> in newer Sass versions). This modular approach keeps
+          your code organized and maintainable.
+        </p>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Example: Using a Partial</h5>
+            <pre><code class="language-scss">
+// In _variables.scss
+$primary-color: #3498db;
+
+// In main.scss
+@import 'variables';
+
+body {
+  color: $primary-color;
+}
+            </code></pre>
+            <p class="card-text">
+              The variables defined in <code>_variables.scss</code> are imported
+              into the main file, centralizing your style settings.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
