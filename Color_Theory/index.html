@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Comprehensive CSS Color Theory Guide</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap CSS CDN (Using Bootstrap 4 for styling) -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #f8f9fa;
+      }
+      pre code {
+        background-color: #e9ecef;
+        padding: 10px;
+        border-radius: 5px;
+        display: block;
+        overflow-x: auto;
+      }
+      .section {
+        margin-bottom: 3rem;
+      }
+      .card {
+        margin-bottom: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">CSS Color Theory</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarColor"
+          aria-controls="navbarColor"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#introduction">Introduction</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#models">Color Models</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#combinations">Color Schemes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#functions">CSS Color Functions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#predicting">Predicting Colors</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#examples">Examples</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#conclusion">Conclusion</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container my-5">
+      <!-- Introduction Section -->
+      <section id="introduction" class="section">
+        <header class="mb-4">
+          <h1 class="display-4">Comprehensive CSS Color Theory Guide</h1>
+          <p class="lead">
+            CSS is not only about layout and typography—understanding color
+            theory is essential to create visually appealing, accessible, and
+            harmonious web designs. In this guide, we break down the
+            fundamentals of CSS color models, explore common color combinations,
+            and explain how slight adjustments can predictably change your
+            design.
+          </p>
+        </header>
+      </section>
+
+      <!-- Color Models Section -->
+      <section id="models" class="section">
+        <h2>CSS Color Models</h2>
+        <p>CSS supports several ways of representing colors:</p>
+        <ul>
+          <li>
+            <strong>Named Colors:</strong> Predefined color names like
+            <code>red</code>, <code>blue</code>, and <code>green</code>.
+          </li>
+          <li>
+            <strong>Hexadecimal:</strong> Colors are defined with hex codes
+            (e.g. <code>#ff5733</code>). This is a shorthand for RGB values.
+          </li>
+          <li>
+            <strong>RGB/RGBA:</strong> The <code>rgb()</code> function defines
+            colors by their red, green, and blue components (e.g.
+            <code>rgb(255, 87, 51)</code>). Adding an alpha channel
+            (<code>rgba()</code>) allows for transparency.
+          </li>
+          <li>
+            <strong>HSL/HSLA:</strong> The <code>hsl()</code> function defines
+            colors using hue (an angle on the color wheel), saturation, and
+            lightness (e.g. <code>hsl(9, 100%, 60%)</code>). This model is more
+            intuitive for adjusting brightness or saturation.
+          </li>
+        </ul>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Example: HSL vs. RGB</h5>
+            <pre><code class="language-css">
+/* RGB example */
+.element-rgb {
+  background-color: rgb(255, 87, 51);
+}
+
+/* HSL equivalent */
+.element-hsl {
+  background-color: hsl(9, 100%, 60%);
+}
+            </code></pre>
+            <p class="card-text">
+              Both methods define a similar color, but HSL makes it easier to
+              predict adjustments by tweaking the hue, saturation, or lightness.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Color Combinations Section -->
+      <section id="combinations" class="section">
+        <h2>Major Color Combinations and Schemes</h2>
+        <p>
+          Designers often use well-known color schemes to achieve harmony in
+          their designs:
+        </p>
+        <ul>
+          <li>
+            <strong>Complementary Colors:</strong> Colors opposite each other on
+            the color wheel (e.g., blue and orange) that create contrast.
+          </li>
+          <li>
+            <strong>Analogous Colors:</strong> Colors adjacent to each other on
+            the wheel (e.g., green, blue-green, blue) that provide a harmonious
+            look.
+          </li>
+          <li>
+            <strong>Triadic Colors:</strong> Three colors evenly spaced around
+            the wheel (e.g., red, yellow, and blue) that are balanced and
+            vibrant.
+          </li>
+          <li>
+            <strong>Monochromatic:</strong> Variations in lightness and
+            saturation of a single hue.
+          </li>
+        </ul>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Example: Monochromatic Scheme</h5>
+            <pre><code class="language-css">
+/* Base color in HSL */
+.base-color {
+  background-color: hsl(210, 50%, 50%);
+}
+
+/* Lighter variant */
+.lighter {
+  background-color: hsl(210, 50%, 65%);
+}
+
+/* Darker variant */
+.darker {
+  background-color: hsl(210, 50%, 35%);
+}
+            </code></pre>
+            <p class="card-text">
+              By only tweaking the lightness percentage, you can create a
+              consistent monochromatic palette.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CSS Color Functions Section -->
+      <section id="functions" class="section">
+        <h2>CSS Color Functions</h2>
+        <p>Modern CSS provides powerful functions for color manipulation:</p>
+        <ul>
+          <li>
+            <strong>rgb() / rgba():</strong> Define colors by specifying red,
+            green, blue, and optional alpha.
+          </li>
+          <li>
+            <strong>hsl() / hsla():</strong> Define colors using hue,
+            saturation, and lightness.
+          </li>
+          <li>
+            <strong>color-mix():</strong> (CSS Color Module Level 4) Mix two
+            colors in a given ratio.
+          </li>
+        </ul>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Example: Mixing Colors (Experimental)</h5>
+            <pre><code class="language-css">
+/* This function is experimental and may require browser flags */
+.mixed-color {
+  background-color: color-mix(in srgb, red 40%, blue);
+}
+            </code></pre>
+            <p class="card-text">
+              The <code>color-mix()</code> function blends red and blue in a 40%
+              to 60% ratio.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Predicting Output Colors Section -->
+      <section id="predicting" class="section">
+        <h2>Predicting Output Colors by Tweaking Values</h2>
+        <p>When using HSL, you can predict the result of adjusting a color:</p>
+        <ul>
+          <li>
+            Changing the <strong>hue</strong> rotates the color on the wheel
+            (e.g., 0° is red, 120° is green, 240° is blue).
+          </li>
+          <li>
+            Adjusting the <strong>saturation</strong> increases or decreases the
+            intensity.
+          </li>
+          <li>
+            Modifying the <strong>lightness</strong> value makes the color
+            lighter or darker.
+          </li>
+        </ul>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Example: Tuning an HSL Color</h5>
+            <pre><code class="language-css">
+/* Base color */
+.base {
+  background-color: hsl(120, 50%, 50%); /* a medium green */
+}
+
+/* Increasing lightness */
+.lighter {
+  background-color: hsl(120, 50%, 65%); /* lighter green */
+}
+
+/* Decreasing saturation */
+.desaturated {
+  background-color: hsl(120, 30%, 50%); /* more muted green */
+}
+            </code></pre>
+            <p class="card-text">
+              By tweaking lightness and saturation, you can easily predict and
+              create variants of a base color.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Practical Examples Section -->
+      <section id="examples" class="section">
+        <h2>Practical Examples and Customization Techniques</h2>
+        <p>
+          Combining color functions, variables, and CSS custom properties lets
+          you build dynamic themes. For instance, using CSS variables makes it
+          easier to update a design’s color palette with minimal effort.
+        </p>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Example: Theming with CSS Variables</h5>
+            <pre><code class="language-css">
+:root {
+  --primary: hsl(220, 90%, 56%);
+  --primary-light: hsl(220, 90%, 70%);
+  --primary-dark: hsl(220, 90%, 42%);
+}
+
+body {
+  background-color: var(--primary-light);
+  color: var(--primary-dark);
+}
+
+.button {
+  background-color: var(--primary);
+  border: none;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: var(--primary-dark);
+}
+            </code></pre>
+            <p class="card-text">
+              This example shows how CSS variables simplify theme management by
+              centralizing color definitions.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Conclusion Section -->
+      <section id="conclusion" class="section">
+        <h2>Conclusion</h2>
+        <p>
+          Understanding color theory in CSS is about more than just knowing the
+          syntax—it’s about grasping how different color models work, how to
+          combine and tweak colors for desired effects, and how to build
+          dynamic, accessible designs. By mastering these concepts, you can
+          predict the outcome of color adjustments and create a cohesive visual
+          language for your projects.
+        </p>
+        <p>
+          Continue exploring advanced resources like MDN, CSS-Tricks, and modern
+          CSS courses to further refine your skills.
+        </p>
+      </section>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
