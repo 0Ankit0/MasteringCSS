@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CSS Image Styling Properties</title>
+    <!-- Bootstrap CSS for overall page styling -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Base dimensions for all image examples */
+      .example-img {
+        width: 300px;
+        height: 200px;
+        background: #ddd;
+        display: block;
+        margin-bottom: 1rem;
+      }
+      /* 1. object-fit */
+      .object-fit {
+        object-fit: cover;
+      }
+      /* 2. object-position */
+      .object-position {
+        object-fit: cover;
+        object-position: top right;
+      }
+      /* 3. image-rendering */
+      .image-rendering {
+        image-rendering: pixelated;
+      }
+      /* 4. filter (grayscale) */
+      .filter {
+        filter: grayscale(100%);
+      }
+      /* 5. opacity */
+      .opacity {
+        opacity: 0.5;
+      }
+      /* 6. hover effect using transition and transform */
+      .hover-effect {
+        transition: transform 0.3s ease;
+      }
+      .hover-effect:hover {
+        transform: scale(1.1);
+      }
+      /* 7. border-radius */
+      .rounded {
+        border-radius: 15px;
+      }
+      /* 8. box-shadow */
+      .shadow {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      /* 9. clip-path */
+      .clip {
+        clip-path: circle(50%);
+      }
+      /* 10. mix-blend-mode */
+      .blend {
+        mix-blend-mode: multiply;
+      }
+      /* 11. transition on filter */
+      .filter-hover {
+        filter: brightness(80%);
+        transition: filter 0.3s ease;
+      }
+      .filter-hover:hover {
+        filter: brightness(100%);
+      }
+      /* Style for code snippets */
+      pre {
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+        padding: 15px;
+        border-radius: 5px;
+        overflow-x: auto;
+      }
+    </style>
+  </head>
+  <body class="container py-5">
+    <h1 class="mb-4 text-center">CSS Properties for Image Styling</h1>
+    <p class="lead">
+      This page demonstrates various CSS properties for styling images. Each
+      section includes a description, a code snippet, and a live example using
+      the image source <code>OOP.jpg</code>.
+    </p>
+
+    <!-- 1. object-fit -->
+    <div class="mb-5">
+      <h3>1. object-fit</h3>
+      <p>
+        The <code>object-fit</code> property defines how the content of a
+        replaced element (such as an image) should be resized to fit its
+        container. Common values include <code>cover</code>,
+        <code>contain</code>, etc.
+      </p>
+      <pre><code>.example-img.object-fit {
+  object-fit: cover;
+}</code></pre>
+      <img
+        src="OOP.jpg"
+        alt="Object Fit Example"
+        class="example-img object-fit"
+      />
+    </div>
+
+    <!-- 2. object-position -->
+    <div class="mb-5">
+      <h3>2. object-position</h3>
+      <p>
+        The <code>object-position</code> property sets the alignment of the
+        replaced element inside its box when using <code>object-fit</code>.
+      </p>
+      <pre><code>.example-img.object-position {
+  object-fit: cover;
+  object-position: top right;
+}</code></pre>
+      <img
+        src="OOP.jpg"
+        alt="Object Position Example"
+        class="example-img object-position"
+      />
+    </div>
+
+    <!-- 3. image-rendering -->
+    <div class="mb-5">
+      <h3>3. image-rendering</h3>
+      <p>
+        The <code>image-rendering</code> property provides a hint to the browser
+        about how to scale images. The value <code>pixelated</code> is useful
+        for crisp edges when enlarging images.
+      </p>
+      <pre><code>.example-img.image-rendering {
+  image-rendering: pixelated;
+}</code></pre>
+      <img
+        src="OOP.jpg"
+        alt="Image Rendering Example"
+        class="example-img image-rendering"
+      />
+    </div>
+
+    <!-- 4. filter (grayscale) -->
+    <div class="mb-5">
+      <h3>4. filter (grayscale)</h3>
+      <p>
+        The <code>filter</code> property applies graphical effects like
+        grayscale, blur, or brightness. Here, it applies a grayscale effect.
+      </p>
+      <pre><code>.example-img.filter {
+  filter: grayscale(100%);
+}</code></pre>
+      <img src="OOP.jpg" alt="Filter Example" class="example-img filter" />
+    </div>
+
+    <!-- 5. opacity -->
+    <div class="mb-5">
+      <h3>5. opacity</h3>
+      <p>
+        The <code>opacity</code> property sets the transparency level of the
+        image. A value of 0 is fully transparent, while 1 is fully opaque.
+      </p>
+      <pre><code>.example-img.opacity {
+  opacity: 0.5;
+}</code></pre>
+      <img src="OOP.jpg" alt="Opacity Example" class="example-img opacity" />
+    </div>
+
+    <!-- 6. hover effect using transition and transform -->
+    <div class="mb-5">
+      <h3>6. Transition &amp; Transform (Hover Effect)</h3>
+      <p>
+        Combined with <code>transition</code> and <code>transform</code>, you
+        can create smooth hover effects. In this case, the image scales up when
+        hovered.
+      </p>
+      <pre><code>.example-img.hover-effect {
+  transition: transform 0.3s ease;
+}
+.example-img.hover-effect:hover {
+  transform: scale(1.1);
+}</code></pre>
+      <img
+        src="OOP.jpg"
+        alt="Hover Effect Example"
+        class="example-img hover-effect"
+      />
+    </div>
+
+    <!-- 7. border-radius -->
+    <div class="mb-5">
+      <h3>7. border-radius</h3>
+      <p>
+        The <code>border-radius</code> property rounds the corners of the image.
+      </p>
+      <pre><code>.example-img.rounded {
+  border-radius: 15px;
+}</code></pre>
+      <img
+        src="hoh.png"
+        alt="Rounded Corners Example"
+        class="example-img rounded"
+      />
+    </div>
+
+    <!-- 8. box-shadow -->
+    <div class="mb-5">
+      <h3>8. box-shadow</h3>
+      <p>
+        The <code>box-shadow</code> property adds shadow around the image,
+        providing depth.
+      </p>
+      <pre><code>.example-img.shadow {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}</code></pre>
+      <img src="OOP.jpg" alt="Box Shadow Example" class="example-img shadow" />
+    </div>
+
+    <!-- 9. clip-path -->
+    <div class="mb-5">
+      <h3>9. clip-path</h3>
+      <p>
+        The <code>clip-path</code> property creates a clipping region that
+        defines which portion of the image is visible. This example clips the
+        image into a circle.
+      </p>
+      <pre><code>.example-img.clip {
+  clip-path: circle(50%);
+}</code></pre>
+      <img src="hoh.png" alt="Clip Path Example" class="example-img clip" />
+    </div>
+
+    <!-- 10. mix-blend-mode -->
+    <div class="mb-5">
+      <h3>10. mix-blend-mode</h3>
+      <p>
+        The <code>mix-blend-mode</code> property defines how an image blends
+        with the content behind it. The example uses the
+        <code>multiply</code> blend mode.
+      </p>
+      <pre><code>.example-img.blend {
+  mix-blend-mode: multiply;
+}</code></pre>
+      <div class="p-3" style="background: #f0f0f0">
+        <img
+          src="OOP.jpg"
+          alt="Mix Blend Mode Example"
+          class="example-img blend"
+        />
+      </div>
+    </div>
+
+    <!-- 11. Transition on filter -->
+    <div class="mb-5">
+      <h3>11. Transition on filter</h3>
+      <p>
+        By combining <code>transition</code> with <code>filter</code>, you can
+        achieve smooth changes in image effects on hover.
+      </p>
+      <pre><code>.example-img.filter-hover {
+  filter: brightness(80%);
+  transition: filter 0.3s ease;
+}
+.example-img.filter-hover:hover {
+  filter: brightness(100%);
+}</code></pre>
+      <img
+        src="OOP.jpg"
+        alt="Filter Transition Example"
+        class="example-img filter-hover"
+      />
+    </div>
+
+    <!-- Bootstrap JS (optional for interactive components) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
